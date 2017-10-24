@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Form</title>
+  <style>
+    body { font-family: 'Helvetica', 'Arial', sans-serif; }
+</style>
+</head>
+<body>
+  <form action="/add_movie" method="POST">
+    <h1>What is your favorite movie?<h1>
+      <input type="text" name="title"><br>
+      <input type="text" name="Year"><br>
+      <input type="text" name="imdb"><br>
+      <input type="submit" value="Submit">
+  </form>
+  <h2>Movies</h2>
+    <ul>
+    {% for movie in movies %}
+      <li><a href="http://www.imdb.com/title/{{ movie.imdb }}">{{ movie.title }}, {{ movie.Year }}</a></li>
+    {% else %}
+      <li>No movies found.</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
